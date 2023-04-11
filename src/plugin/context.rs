@@ -49,27 +49,27 @@ pub struct RapierContext {
     pub query_pipeline: QueryPipeline,
     /// The integration parameters, controlling various low-level coefficient of the simulation.
     pub integration_parameters: IntegrationParameters,
-    pub(crate) physics_scale: Real,
+    pub physics_scale: Real,
     #[cfg_attr(feature = "serde-serialize", serde(skip))]
-    pub(crate) event_handler: Option<Box<dyn EventHandler>>,
+    pub event_handler: Option<Box<dyn EventHandler>>,
     // For transform change detection.
     #[cfg_attr(feature = "serde-serialize", serde(skip))]
-    pub(crate) last_body_transform_set: HashMap<RigidBodyHandle, GlobalTransform>,
+    pub last_body_transform_set: HashMap<RigidBodyHandle, GlobalTransform>,
     // NOTE: these maps are needed to handle despawning.
     #[cfg_attr(feature = "serde-serialize", serde(skip))]
-    pub(crate) entity2body: HashMap<Entity, RigidBodyHandle>,
+    pub entity2body: HashMap<Entity, RigidBodyHandle>,
     #[cfg_attr(feature = "serde-serialize", serde(skip))]
-    pub(crate) entity2collider: HashMap<Entity, ColliderHandle>,
+    pub entity2collider: HashMap<Entity, ColliderHandle>,
     #[cfg_attr(feature = "serde-serialize", serde(skip))]
-    pub(crate) entity2impulse_joint: HashMap<Entity, ImpulseJointHandle>,
+    pub entity2impulse_joint: HashMap<Entity, ImpulseJointHandle>,
     #[cfg_attr(feature = "serde-serialize", serde(skip))]
-    pub(crate) entity2multibody_joint: HashMap<Entity, MultibodyJointHandle>,
+    pub entity2multibody_joint: HashMap<Entity, MultibodyJointHandle>,
     // This maps the handles of colliders that have been deleted since the last
     // physics update, to the entity they was attached to.
     #[cfg_attr(feature = "serde-serialize", serde(skip))]
-    pub(crate) deleted_colliders: HashMap<ColliderHandle, Entity>,
+    pub deleted_colliders: HashMap<ColliderHandle, Entity>,
     #[cfg_attr(feature = "serde-serialize", serde(skip))]
-    pub(crate) character_collisions_collector: Vec<rapier::control::CharacterCollision>,
+    pub character_collisions_collector: Vec<rapier::control::CharacterCollision>,
 }
 
 impl Default for RapierContext {
