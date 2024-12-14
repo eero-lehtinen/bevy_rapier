@@ -67,7 +67,7 @@ pub struct RapierContextColliders {
     /// The set of colliders part of the simulation.
     pub colliders: ColliderSet,
     #[cfg_attr(feature = "serde-serialize", serde(skip))]
-    pub(crate) entity2collider: HashMap<Entity, ColliderHandle>,
+    pub entity2collider: HashMap<Entity, ColliderHandle>,
 }
 
 impl RapierContextColliders {
@@ -760,19 +760,19 @@ pub struct RapierContextSimulation {
     /// The integration parameters, controlling various low-level coefficient of the simulation.
     pub integration_parameters: IntegrationParameters,
     #[cfg_attr(feature = "serde-serialize", serde(skip))]
-    pub(crate) event_handler: Option<Box<dyn EventHandler>>,
+    pub event_handler: Option<Box<dyn EventHandler>>,
     // This maps the handles of colliders that have been deleted since the last
     // physics update, to the entity they was attached to.
     /// NOTE: this map is needed to handle despawning.
     #[cfg_attr(feature = "serde-serialize", serde(skip))]
-    pub(crate) deleted_colliders: HashMap<ColliderHandle, Entity>,
+    pub deleted_colliders: HashMap<ColliderHandle, Entity>,
 
     #[cfg_attr(feature = "serde-serialize", serde(skip))]
-    pub(crate) collision_events_to_send: Vec<CollisionEvent>,
+    pub collision_events_to_send: Vec<CollisionEvent>,
     #[cfg_attr(feature = "serde-serialize", serde(skip))]
-    pub(crate) contact_force_events_to_send: Vec<ContactForceEvent>,
+    pub contact_force_events_to_send: Vec<ContactForceEvent>,
     #[cfg_attr(feature = "serde-serialize", serde(skip))]
-    pub(crate) character_collisions_collector: Vec<rapier::control::CharacterCollision>,
+    pub character_collisions_collector: Vec<rapier::control::CharacterCollision>,
 }
 
 impl Default for RapierContextSimulation {
